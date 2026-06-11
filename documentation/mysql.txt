@@ -1,0 +1,454 @@
+Microsoft Windows [Version 10.0.26200.8655]
+(c) Microsoft Corporation. All rights reserved.
+
+C:\Users\dhrum>mysql --version
+mysql  Ver 8.0.42 for Win64 on x86_64 (MySQL Community Server - GPL)
+
+C:\Users\dhrum>mysql -u root -p
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 11
+Server version: 8.0.42 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2025, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> system dir C:\Users\dhrum\Desktop\Projects\dbms\Smart_Event_Management_System
+ Volume in drive C is OS
+ Volume Serial Number is A048-E82B
+
+ Directory of C:\Users\dhrum\Desktop\Projects\dbms\Smart_Event_Management_System
+
+11-06-2026  12:21    <DIR>          .
+11-06-2026  12:06    <DIR>          ..
+11-06-2026  12:11             7,527 advanced_queries.sql
+11-06-2026  12:09             4,891 procedures.sql
+11-06-2026  12:08             8,159 sample_data.sql
+11-06-2026  12:21             9,432 schema.sql
+11-06-2026  12:10             5,502 triggers.sql
+11-06-2026  12:10             4,736 views.sql
+               6 File(s)         40,247 bytes
+               2 Dir(s)  88,328,314,880 bytes free
+
+
+mysql> source C:/Users/dhrum/Desktop/Projects/dbms/Smart_Event_Management_System/schema.sql
+Query OK, 1 row affected (0.01 sec)
+
+Database changed
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.03 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.05 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.05 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> USE SmartEventManagement;
+Database changed
+mysql> SHOW TABLES;
++--------------------------------+
+| Tables_in_smarteventmanagement |
++--------------------------------+
+| attendance                     |
+| attendee                       |
+| auditlog                       |
+| certificate                    |
+| event                          |
+| eventanalytics                 |
+| eventcategory                  |
+| eventsponsor                   |
+| facultycoordinator             |
+| feedback                       |
+| notification                   |
+| organizer                      |
+| payment                        |
+| registration                   |
+| sponsor                        |
+| venue                          |
+| volunteer                      |
+| volunteerassignment            |
++--------------------------------+
+18 rows in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM Event;
++----------+
+| COUNT(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.01 sec)
+
+mysql> SELECT COUNT(*) FROM Attendee;
++----------+
+| COUNT(*) |
++----------+
+|       10 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> SELECT COUNT(*) FROM Registration;
++----------+
+| COUNT(*) |
++----------+
+|        0 |
++----------+
+1 row in set (0.00 sec)
+
+mysql> source C:/Users/dhrum/Desktop/Projects/dbms/Smart_Event_Management_System/procedures.sql
+Database changed
+Query OK, 0 rows affected (0.02 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW PROCEDURE STATUS
+    -> WHERE Db='SmartEventManagement';
++----------------------+---------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| Db                   | Name                | Type      | Definer        | Modified            | Created             | Security_type | Comment | character_set_client | collation_connection | Database Collation |
++----------------------+---------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+| smarteventmanagement | AttendanceReport    | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | BranchParticipation | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | CalculateRevenue    | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | CertificateReport   | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | EventSummary        | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | FeedbackAnalytics   | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | GenerateCertificate | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | RegisterStudent     | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | SponsorReport       | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| smarteventmanagement | TopEvents           | PROCEDURE | root@localhost | 2026-06-11 12:32:28 | 2026-06-11 12:32:28 | DEFINER       |         | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
++----------------------+---------------------+-----------+----------------+---------------------+---------------------+---------------+---------+----------------------+----------------------+--------------------+
+10 rows in set (0.01 sec)
+
+mysql> source C:/Users/dhrum/Desktop/Projects/dbms/Smart_Event_Management_System/triggers.sql
+Database changed
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW TRIGGERS;
++------------------------------------+--------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+------------------------+-----------------------------------------------------------------------------------------------------------------------+----------------+----------------------+----------------------+--------------------+
+| Trigger                            | Event  | Table        | Statement                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Timing | Created                | sql_mode                                                                                                              | Definer        | character_set_client | collation_connection | Database Collation |
++------------------------------------+--------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+------------------------+-----------------------------------------------------------------------------------------------------------------------+----------------+----------------------+----------------------+--------------------+
+| trg_attendance_update              | INSERT | attendance   | BEGIN
+
+    IF NEW.AttendanceStatus = 'PRESENT' THEN
+
+        UPDATE EventAnalytics
+        SET TotalAttendance =
+            TotalAttendance + 1
+        WHERE EventID = NEW.EventID;
+
+    END IF;
+
+END                                                                                                                                                                                                                                                                                                                                                                               | AFTER  | 2026-06-11 12:32:47.12 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_generate_certificate           | INSERT | attendance   | BEGIN
+
+    IF NEW.AttendanceStatus = 'PRESENT' THEN
+
+        INSERT INTO Certificate(
+            EventID,
+            AttendeeID,
+            CertificateNumber,
+            IssueDate,
+            CertificateStatus
+        )
+        VALUES(
+            NEW.EventID,
+            NEW.AttendeeID,
+            CONCAT(
+                'CERT-',
+                NEW.EventID,
+                '-',
+                NEW.AttendeeID,
+                '-',
+                FLOOR(RAND()*10000)
+            ),
+            CURDATE(),
+            'ISSUED'
+        );
+
+    END IF;
+
+END | AFTER  | 2026-06-11 12:32:47.13 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_create_event_analytics         | INSERT | event        | BEGIN
+
+    INSERT INTO EventAnalytics(
+        EventID,
+        TotalRegistrations,
+        TotalAttendance,
+        RevenueGenerated,
+        AverageRating
+    )
+    VALUES(
+        NEW.EventID,
+        0,
+        0,
+        0,
+        0
+    );
+
+END                                                                                                                                                                                                                                                                                                                            | AFTER  | 2026-06-11 12:32:47.09 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_audit_event_insert             | INSERT | event        | BEGIN
+
+    INSERT INTO AuditLog(
+        TableName,
+        ActionType,
+        RecordID,
+        ActionBy
+    )
+    VALUES(
+        'Event',
+        'INSERT',
+        NEW.EventID,
+        USER()
+    );
+
+END                                                                                                                                                                                                                                                                                                                                                                       | AFTER  | 2026-06-11 12:32:47.17 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_audit_event_delete             | DELETE | event        | BEGIN
+
+    INSERT INTO AuditLog(
+        TableName,
+        ActionType,
+        RecordID,
+        ActionBy
+    )
+    VALUES(
+        'Event',
+        'DELETE',
+        OLD.EventID,
+        USER()
+    );
+
+END                                                                                                                                                                                                                                                                                                                                                                       | AFTER  | 2026-06-11 12:32:47.18 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_feedback_rating                | INSERT | feedback     | BEGIN
+
+    UPDATE EventAnalytics EA
+    SET AverageRating =
+    (
+        SELECT ROUND(
+            AVG(Rating),
+            2
+        )
+        FROM Feedback
+        WHERE EventID = NEW.EventID
+    )
+    WHERE EA.EventID = NEW.EventID;
+
+END                                                                                                                                                                                                                                                                                                                                     | AFTER  | 2026-06-11 12:32:47.14 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_payment_success                | INSERT | payment      | BEGIN
+
+    DECLARE v_event_id INT;
+
+    IF NEW.PaymentStatus = 'SUCCESS' THEN
+
+        SELECT EventID
+        INTO v_event_id
+        FROM Registration
+        WHERE RegistrationID =
+              NEW.RegistrationID;
+
+        UPDATE EventAnalytics
+        SET RevenueGenerated =
+            RevenueGenerated + NEW.Amount
+        WHERE EventID = v_event_id;
+
+    END IF;
+
+END                                                                                                                                                                                                | AFTER  | 2026-06-11 12:32:47.11 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_prevent_duplicate_registration | INSERT | registration | BEGIN
+
+    DECLARE total INT;
+
+    SELECT COUNT(*)
+    INTO total
+    FROM Registration
+    WHERE AttendeeID = NEW.AttendeeID
+    AND EventID = NEW.EventID;
+
+    IF total > 0 THEN
+
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT =
+        'Student already registered';
+
+    END IF;
+
+END                                                                                                                                                                                                                                                                               | BEFORE | 2026-06-11 12:32:47.15 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_prevent_overbooking            | INSERT | registration | BEGIN
+
+    DECLARE total_registered INT;
+    DECLARE max_allowed INT;
+
+    SELECT COUNT(*)
+    INTO total_registered
+    FROM Registration
+    WHERE EventID = NEW.EventID;
+
+    SELECT MaxParticipants
+    INTO max_allowed
+    FROM Event
+    WHERE EventID = NEW.EventID;
+
+    IF total_registered >= max_allowed THEN
+
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT =
+        'Event capacity reached';
+
+    END IF;
+
+END                                                                                                                                             | BEFORE | 2026-06-11 12:32:47.16 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
+| trg_registration_insert            | INSERT | registration | BEGIN
+
+    UPDATE EventAnalytics
+    SET TotalRegistrations =
+        TotalRegistrations + 1
+    WHERE EventID = NEW.EventID;
+
+END                                                                                                                                                                                                                                                                                                                                                                                                                                                    | AFTER  | 2026-06-11 12:32:47.10 | ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION | root@localhost | cp850                | cp850_general_ci     | utf8mb4_0900_ai_ci |
++------------------------------------+--------+--------------+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------+------------------------+-----------------------------------------------------------------------------------------------------------------------+----------------+----------------------+----------------------+--------------------+
+10 rows in set (0.01 sec)
+
+mysql> source C:/Users/dhrum/Desktop/Projects/dbms/Smart_Event_Management_System/views.sql
+Database changed
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SHOW FULL TABLES
+    -> WHERE Table_type='VIEW';
++--------------------------------+------------+
+| Tables_in_smarteventmanagement | Table_type |
++--------------------------------+------------+
+| vw_attendancereport            | VIEW       |
+| vw_branchparticipation         | VIEW       |
+| vw_certificatereport           | VIEW       |
+| vw_eventanalytics              | VIEW       |
+| vw_eventsummary                | VIEW       |
+| vw_feedbackanalytics           | VIEW       |
+| vw_revenuereport               | VIEW       |
+| vw_sponsorreport               | VIEW       |
+| vw_topevents                   | VIEW       |
+| vw_volunteerreport             | VIEW       |
++--------------------------------+------------+
+10 rows in set (0.00 sec)
+
+mysql> SELECT * FROM vw_EventSummary;
+Empty set (0.00 sec)
+
+mysql> ^C
+mysql> SELECT * FROM vw_RevenueReport;
+Empty set (0.01 sec)
+
+mysql> CALL TopEvents();
+Empty set (0.01 sec)
+
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CALL FeedbackAnalytics();
+Empty set (0.00 sec)
+
+Query OK, 0 rows affected (0.00 sec)
+
+
